@@ -17,7 +17,7 @@ class BaseModel:
         self.updated_at = deepcopy(self.created_at)
 
     def save(self):
-    """public instance methods: save object"""
+        """public instance methods: save object"""
         self.updated_at = datetime.now()
 
     def to_dict(self):
@@ -28,6 +28,7 @@ class BaseModel:
         mydct["__class__"] = self.__class__.__name__
         mydct["created_at"] = self.created_at.strftime(BaseModel.format)
         mydct["updated_at"] = self.updated_at.strftime(BaseModel.format)
+        return mydct
 
     def __str__(self):
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
