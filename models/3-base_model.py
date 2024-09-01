@@ -4,7 +4,6 @@
 from uuid import uuid4
 from datetime import datetime
 from copy import deepcopy
-import json
 
 
 class BaseModel:
