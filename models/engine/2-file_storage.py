@@ -1,8 +1,8 @@
 #!/user/bin/python3
 """module defines class 'FileStorage' <task5>"""
 
-from models.base_model import BaseModel
 import json
+from models.base_mode import BaseModel
 
 class FileStorage:
     """class FileStorage"""

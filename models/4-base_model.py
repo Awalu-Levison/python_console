@@ -4,8 +4,7 @@
 from uuid import uuid4
 from datetime import datetime
 from copy import deepcopy
-
-from . import storage
+import json
 
 
 class BaseModel:
@@ -26,12 +25,10 @@ class BaseModel:
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = deepcopy(self.created_at)
-            storage.new()
 
     def save(self):
         """public instance methods: save object"""
         self.updated_at = datetime.now()
-        storage.save()
 
     def to_dict(self):
         """Returns object representation"""
@@ -41,7 +38,6 @@ class BaseModel:
         mydct["__class__"] = self.__class__.__name__
         mydct["created_at"] = self.created_at.strftime(BaseModel.format)
         mydct["updated_at"] = self.updated_at.strftime(BaseModel.format)
-
         return mydct
 
     def __str__(self):
